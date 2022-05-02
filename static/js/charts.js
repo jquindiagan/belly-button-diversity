@@ -90,13 +90,12 @@ function buildCharts(sample) {
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
-    var otuIdsSort = otuIds.sort((a,b) => a - b).reverse(); 
+    var otuIdsSort = otuIds.sort((a,b) => a.otuIds - b.otuIds).reverse(); 
     var yticks = otuIdsSort.slice(0,10);
-    var xticks = sampleValues.slice(0,10).reverse();
 
     // 8. Create the trace for the bar chart. 
     var barData = [{
-      x: xticks,
+      x: sampleValues,
       y: yticks,
       type: "bar",
       orientation: "h",
@@ -105,7 +104,7 @@ function buildCharts(sample) {
 
     // 9. Create the layout for the bar chart. 
     var barLayout = {
-      title: "Top 10 OTU"     
+      title: "Top 10 Bacteria Cultures Found"     
     };
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("bar", barData, barLayout);
@@ -125,7 +124,7 @@ function buildCharts(sample) {
     // 2-2. Create the layout for the bubble chart.
     var bubbleLayout = {
       title: "Bacteria Cultures Per Sample",
-      xaxis: {title: "xx"},
+      xaxis: {title: "OTU ID"},
     };
 
     // 2-3. Use Plotly to plot the data with the layout.
@@ -135,17 +134,18 @@ function buildCharts(sample) {
     // 3-4. Create the trace for the gauge chart.
     var gaugeData = [{
       value: washingFreq,
-      title: {text: "Belly Button Washing Frequency<br>Scrubs per Week"},
+      title: {text: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week"},
       type: "indicator",
       mode: "gauge+number",
       gauge: {
         axis: {range: [0,10]},
+        bar: {color: "#000000"},
         steps: [
-          {range: [0,2], color:"#ea2c2c"},
-          {range: [2,4], color:"#ea822c"},
-          {range: [4,6], color:"#ee9c00"},
-          {range: [6,8], color:"#eecc00"},
-          {range: [8,10], color:"#d4ee00"}
+          {range: [0,2], color:"#FF0000"},
+          {range: [2,4], color:"#FF9900"},
+          {range: [4,6], color:"#FFFF33"},
+          {range: [6,8], color:"#66CC00"},
+          {range: [8,10], color:"#009900"}
         ]
       }
     }];
