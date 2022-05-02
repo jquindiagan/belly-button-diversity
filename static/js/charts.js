@@ -97,7 +97,7 @@ function buildCharts(sample) {
       y: yticks,
       type: "bar",
       orientation: "h",
-      text: otuLabels.slice(0,10).reverse()
+      text: otuLabels.slice(0,10).reverse(),
     }];
 
     // 1-9. Create the layout for the bar chart. 
@@ -151,7 +151,7 @@ function buildCharts(sample) {
     
     // 3-5. Create the layout for the gauge chart.
     var gaugeLayout = { 
-      width: 600, height: 450, margin: {t: 0, b: 0}     
+      width: 500, height: 350, margin: {t: 0, b: 0}     
     };
 
     // 3-6. Use Plotly to plot the gauge data and layout.

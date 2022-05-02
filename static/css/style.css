@@ -1,0 +1,20 @@
+.jumbotron {
+    background-image: url("https://cdn-prod.medicalnewstoday.com/content/images/articles/319/319750/bacteria-and-viruses.jpg");
+    text-align: center;
+    opacity: 0.8;
+    color: #ffffff;
+  }
+
+.body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.well{
+    text-align: center;
+    background-color:#fdf5e6;
+    border-color:#ffefd5;
+}
+
+.panel{
+    text-align: center;
+}
